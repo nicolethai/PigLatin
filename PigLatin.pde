@@ -23,15 +23,6 @@ public int findFirstVowel(String sWord)
 			else
 				return 1;
 		}
-		/*
-		for(int i = 0; i < sWord.length(); i++)
-		{
-			for (int v = 0; v < vowels.length(); v++)
-			{
-    			if(sWord.substring(i, i+1).equals(vowels.substring(v, v+1)))
-        			return i; // index of vowel
-			}
-		} */
 	}
 	return -1; // no vowels
 }
@@ -65,7 +56,7 @@ public String pigLatin(String sWord)
 	}
 	else if(findQU(sWord) == 0) // begins with "qu"
 	{
-		return sWord.substring(2, sWord.length()) + "quay";
+		return sWord.substring(3, sWord.length()) + "quay";
 	}
 	else // debugger
 	{
