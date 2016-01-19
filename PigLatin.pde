@@ -15,10 +15,13 @@ public int findFirstVowel(String sWord)
 //postcondition: returns the position of the first vowel in sWord.  If there are no vowels, returns -1
 {
 	String vowels = "aeiou";
-	for(int v = 0; v < vowels.length(); v++)
+	for (int i = 0; i < sWord.length(); i++)
 	{
-		if(sWord.charAt(0) == (vowels.charAt(v)))
-			return 0;
+		for(int v = 0; v < vowels.length(); v++)
+		{
+			if(sWord.charAt(i) == (vowels.charAt(v)))
+				return i;
+		}
 	}
 	return -1; // no vowels
 	/* 	CODING BAT:
@@ -53,11 +56,15 @@ public String pigLatin(String sWord)
 	}
 	if(findFirstVowel(sWord) == -1)
 	{
-		if(findQU(sWord) == 0)
-			return sWord.substring(2, sWord.length()) + "quay";
 		if(sWord.length() > 3)
 			return sWord.substring(1, sWord.length()) + sWord.substring(0, 1) + "ay";
 		return sWord + "ay";
+	}
+	if(findFirstVowel(sWord) > 0)
+	{
+		if(findQU(sWord) == 0)
+			return sWord.substring(2, sWord.length()) + "quay";
+		return sWord.substring(findFirstVowel(sWord), sWord.length()) + sWord.substring(0, findFirstVowel(sWord)) + "ay";
 	}
 	else
 	{
